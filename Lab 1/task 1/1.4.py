@@ -1,7 +1,7 @@
 # блоки голосования
 blocks = int(input())
-input()  # пропуск строки ввода
 for _ in range(blocks):  # Для каждого блока
+    input()  # пропуск строки ввода
     names = {}  # имена кандидатов в порядке бюллетеня
     papers = []  # Список бюллетеней
     c_num = int(input())  # Число кандидатов
@@ -25,7 +25,8 @@ for _ in range(blocks):  # Для каждого блока
         # -- Условия победы --
         # Если кандидат с наибольшим кол-вом голосов имеет 50 и более процентов
         if sorted_candidates[-1][1] / len(papers) > 0.5:
-            print(names[sorted_candidates[-1][0]])
+            print(names[sorted_candidates[-1][0]])  # Выводим имя победителя
+            print()  # пустая строка-разделитель
             break
         is_equal = True
         for i in range(len(sorted_candidates) - 1):
@@ -34,8 +35,9 @@ for _ in range(blocks):  # Для каждого блока
                 break
         # Если равное кол-во голосов - вывод всех кандидатов
         if is_equal:
-            for sc in sorted_candidates:
+            for sc in sorted_candidates:  # Выводим имена всех кандидатов с равными голосами
                 print(names[sc[0]])
+            print()  # пустая строка-разделитель
             break
         # -- Убираем из бюллетеней наименьшего --
         smaller = sorted_candidates[0][0]
