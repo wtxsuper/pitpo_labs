@@ -1,25 +1,25 @@
 # блоки голосования
 blocks = int(input())
 input()  # пропуск строки ввода
-for _ in range(blocks):
+for _ in range(blocks):  # Для каждого блока
     names = {}  # имена кандидатов в порядке бюллетеня
-    papers = []
-    c_num = int(input())
+    papers = []  # Список бюллетеней
+    c_num = int(input())  # Число кандидатов
     # Ввод кандидатов
     for i in range(c_num):
         names[str(i + 1)] = input()
     # Ввод бюллетеней
     while True:
         t = input()
-        if t.strip() == "":
+        if t.strip() == "":  # Если введена пустая строка, прерываем ввод
             break
         papers.append(t.split())
 
-    while True:
-        candidates = {k: 0 for k in names.keys()}
+    while True:  # пока не будет определён победитель или равное кол-во голосов
+        candidates = {k: 0 for k in names.keys()}  # Обнуляем результаты голосования
         for paper in papers:
             candidates[paper[0]] += 1
-        # Сортировка словаря по значениям
+        # Сортировка словаря по значениям с преобразованием в список
         sorted_candidates = sorted(candidates.items(), key=lambda x: x[1])
 
         # -- Условия победы --
